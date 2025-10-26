@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# Editor settings
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary folders
+.tmp/
+temp/
+cache/
+
+# Test coverage (if you ever add testing)
+coverage/
+
+# Optional lock files (keep if you want reproducible builds)
+# package-lock.json
+# yarn.lock
+

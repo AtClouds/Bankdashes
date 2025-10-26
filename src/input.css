@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+
+@theme{
+    /*--Colors----*/
+  --color-primary-text: #1814F3;
+  --color-primary-header: #343C6A;
+  --color-primary-bg: #F5F7FA;
+  --color-primary-bg-text: #718EBF;
+  --color-primary-icon: #B1B1B1;
+  --color-primary-hover: #1814F3;
+  --color-secondary: #718EBF;
+  --color-secondary-black: #232323;
+
+  /*----- BreakPoint----------*/
+   --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 1024px; 
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1440px;
+
+  /*-------Icons Animation---------*/
+  @keyframes ring {
+    0%, 100% { transform: rotate(0); }
+    10%, 30%, 50%, 70%, 90% { transform: rotate(-15deg); }
+    20%, 40%, 60%, 80% { transform: rotate(15deg); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+
+}
+
+
+
+
+ 
+.hamburger{
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+}
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: #343C6A;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle{
+  transform: translateY(7px);
+}
+.hamburger-bottom{
+   transform: translateY(14px);
+}
+
+.open{
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+.open .hamburger-top{
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle{
+  display:none;
+}
+
+.open .hamburger-bottom{
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+ 
+ 
+
+ /*------Desktop hover highlighting line-----*/
+ 
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 0;
+  background-color: transparent;
+  transition: height 0.3s, background-color 0.3s;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  
+}
+
+.menu-item:hover::before {
+  height: 30px; /* Adjust this height as needed */
+  background-color: #1814F3; /* Highlight color */
+}
+
+
+/*--Bottom Bar---*/
+.tab-bar {
+  position: relative;
+  padding-bottom: 10px; /* space for underline */
+}
+
+.tab-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* place underline below text */
+  width: 0%;
+  height: 5px;
+  background-color: #1814F3; /* blue color */
+  transition: width 0.3s ease-in-out;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.tab-bar.active::before,
+.tab-bar:hover::before {
+  width: 100%; /* full underline on active/hover */
+}
+
+
+/*--Bottom Bar Two---*/
+.tab-bars {
+  position: relative;
+  padding-bottom: 10px; /* space for underline */
+}
+
+.tab-bars::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* place underline below text */
+  width: 0%;
+  height: 3px;
+  background-color: #1814F3; /* blue color */
+  transition: width 0.3s ease-in-out;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.tab-bars.active::before,
+.tab-bars:hover::before {
+  width: 100%; /* full underline on active/hover */
+}
+
+
+/*---Pagination-----*/
+.pagination:hover{
+  color: white;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #1814F3;
+  transition: all ease-in-out 500ms;
+}
+
+
+/*------Icon-Animation-------*/
+
+.icon-hover:hover {
+  animation: ring 1s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.icon-pulse-hover:hover {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.icon-bounce-hover:hover {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/*-------Scroll Animation--------*/
+.reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Optional direction variations */
+    .slide-left { transform: translateX(-30px); }
+    .slide-right { transform: translateX(30px); }
+    .slide-up { transform: translateY(30px); }
+    .slide-down { transform: translateY(-30px); }
+
+  
+    
+
+  /* Hide the default browser icon */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
